@@ -1,0 +1,8 @@
+{
+  "extends": "tslint:latest",
+  "rules": {
+    "interface-name": false,
+    "no-submodule-imports": false,
+    "trailing-comma": false
+  }
+}
