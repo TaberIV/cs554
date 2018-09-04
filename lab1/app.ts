@@ -1,8 +1,10 @@
+import bodyParser from "body-parser";
 import express, { Express } from "express";
-// import bodyParser from "body-parser";
 import configRoutes from "./routes";
 
 const app: Express = express();
+app.use(bodyParser.json());
+
 configRoutes(app);
 
 app.listen(3000, () => {

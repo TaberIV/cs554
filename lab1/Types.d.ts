@@ -1,7 +1,5 @@
-import { v4 } from "uuid/interfaces";
-
 export interface Task {
-  id: v4;
+  _id: string;
   title: string;
   description: string;
   hoursEstimated: number;
@@ -10,7 +8,7 @@ export interface Task {
 }
 
 export interface Comment {
-  id: v4;
+  _id: string;
   name: string;
   comment: string;
 }

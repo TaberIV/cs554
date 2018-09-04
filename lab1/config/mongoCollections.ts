@@ -2,7 +2,7 @@ import { Collection } from "mongodb";
 import { Task } from "../Types";
 import dbConnection from "./mongoConnection";
 
-function getCollectionFn<T>(collection): () => Promise<Collection<T>> {
+function getCollectionFn<T>(collection: string): () => Promise<Collection<T>> {
   let col: Collection<T> | undefined;
 
   return async () => {

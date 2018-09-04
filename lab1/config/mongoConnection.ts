@@ -10,7 +10,10 @@ let db: Db;
 
 export default async () => {
   if (!connection) {
-    connection = await MongoClient.connect(mongoConfig.serverUrl);
+    connection = await MongoClient.connect(
+      mongoConfig.serverUrl,
+      { useNewUrlParser: true }
+    );
     db = await connection.db(mongoConfig.database);
   }
 

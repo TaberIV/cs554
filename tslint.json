@@ -3,6 +3,10 @@
   "rules": {
     "interface-name": false,
     "no-submodule-imports": false,
-    "trailing-comma": false
+    "trailing-comma": false,
+    "object-literal-sort-keys": false,
+    "no-console": false,
+    "variable-name": [true, "allow-leading-underscore"],
+    "arrow-parens": false // Consider changing and fixing prettier instead
   }
 }
