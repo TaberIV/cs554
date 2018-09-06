@@ -3,13 +3,9 @@ import { tasks } from "../config/mongoCollections";
 import { Comment, Task } from "../Types";
 
 const noSuchMember = new Error("No such member exist in the database.");
-const missingDetails = new Error("Missing details.");
 
 export default {
-  async getTasks(skip?: number, take?: number): Promise<Task[]> {
-    skip = !skip ? 0 : skip;
-    take = !take ? 20 : Math.min(take, 100);
-
+  async getTasks(skip: number, take: number): Promise<Task[]> {
     try {
       const taskCollection = await tasks();
 
@@ -33,23 +29,14 @@ export default {
     title: string;
     description: string;
     hoursEstimated: number;
-    completed?: boolean;
+    completed: boolean;
   }) {
     try {
       const taskCollection = await tasks();
 
-      const { title, description, hoursEstimated, completed } = task;
-
-      if (!title || !description || !(hoursEstimated > 0)) {
-        throw missingDetails;
-      }
-
       const newTask: Task = {
         _id: uuid(),
-        title,
-        description,
-        hoursEstimated,
-        completed: completed === true,
+        ...task,
         comments: [] as Comment[]
       };
 
@@ -73,13 +60,15 @@ export default {
     try {
       const taskCollection = await tasks();
 
-      // Find existing comments
       const existing = await taskCollection.findOne({ _id });
 
       if (existing) {
         const { comments } = existing;
 
-        taskCollection.updateOne({ _id }, { ...update, comments });
+        await taskCollection.updateOne(
+          { _id },
+          { $set: { ...update, comments } }
+        );
 
         return taskCollection.findOne({ _id });
       } else {
