@@ -51,10 +51,10 @@ export default {
   async updateTask(
     _id: string,
     update: {
-      title: string;
-      description: string;
-      hoursEstimated: number;
-      completed: boolean;
+      title?: string;
+      description?: string;
+      hoursEstimated?: number;
+      completed?: boolean;
     }
   ) {
     try {
@@ -79,26 +79,13 @@ export default {
     }
   },
 
-  async patchTask(
-    _id: string,
-    patch: {
-      title?: string;
-      description?: string;
-      hoursEstimated?: number;
-      completed?: boolean;
+  async createComment(
+    _id,
+    commentData: {
+      name: string;
+      comment: string;
     }
-  ) {
-    const taskCollection = await tasks();
-
-    taskCollection.updateOne({ _id }, patch);
-
-    return taskCollection.findOne({ _id });
-  },
-
-  async createComment(commentData: {
-    name: string;
-    comment: string;
-  }): Promise<Comment> {
+  ): Promise<Comment> {
     try {
       const taskCollection = await tasks();
 
@@ -107,7 +94,7 @@ export default {
         ...commentData
       };
 
-      taskCollection.insertOne(comment);
+      taskCollection.updateOne({ _id }, { push: { comment } });
 
       return comment;
     } catch (e) {
