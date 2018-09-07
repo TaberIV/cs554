@@ -80,7 +80,7 @@ export default {
   },
 
   async createComment(
-    _id,
+    _id: string,
     commentData: {
       name: string;
       comment: string;
@@ -94,7 +94,7 @@ export default {
         ...commentData
       };
 
-      taskCollection.updateOne({ _id }, { push: { comment } });
+      taskCollection.updateOne({ _id }, { $push: { comments: comment } });
 
       return comment;
     } catch (e) {
@@ -103,27 +103,15 @@ export default {
   },
 
   async deleteComment(taskId: string, commentId: string) {
-    const taskCollection = await tasks();
+    try {
+      const taskCollection = await tasks();
 
-    const task = await taskCollection.findOne({ _id: taskId });
-
-    if (task) {
-      const comment = task.comments.find(cmt => cmt._id === commentId);
-
-      if (comment) {
-        const commentIndex = task.comments.indexOf(comment);
-
-        const newComments = task.comments
-          .slice(0, commentIndex)
-          .concat(task.comments.slice(commentIndex + 1));
-        const newTask = { ...task, comments: newComments };
-
-        taskCollection.updateOne(task, newTask);
-
-        return comment;
-      }
+      return taskCollection.updateOne(
+        { _id: taskId },
+        { $pull: { comments: { _id: commentId } } }
+      );
+    } catch (e) {
+      throw e;
     }
-
-    throw noSuchMember;
   }
 };
