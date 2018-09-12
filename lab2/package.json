@@ -1,0 +1,14 @@
+{
+  "name": "lab2",
+  "version": "1.0.0",
+  "description": "Bootstrap and Sass",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "E. Taber McFarlin",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.5.0"
+  }
+}
