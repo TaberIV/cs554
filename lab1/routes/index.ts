@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from "express";
+import { Express, Request, Response } from "express";
 import tasks from "./tasks";
 
 export default function constructorMethod(app: Express) {
