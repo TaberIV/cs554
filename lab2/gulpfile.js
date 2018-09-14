@@ -1,23 +1,24 @@
-import { task, src, dest, watch } from "gulp";
-import concatenate from "gulp-concat";
-import cleanCSS from "gulp-clean-css";
-import autoPrefix from "gulp-autoprefixer";
-import gulpSASS from "gulp-sass";
-import rename from "gulp-rename";
+const gulp = require("gulp");
+const concatenate = require("gulp-concat");
+const cleanCSS = require("gulp-clean-css");
+const autoPrefix = require("gulp-autoprefixer");
+const gulpSASS = require("gulp-sass");
+const rename = require("gulp-rename");
 
 const sassFiles = ["./src/styles/*"];
 
-const vendorJsFiles = [
+const js = [
   "./node_modules/jquery/dist/jquery.min.js",
-  "./node_modules/tether/dist/js/tether.min.js",
+  "./node_modules/popper.js/dist/umd/popper.min.js",
   "./node_modules/bootstrap/dist/js/bootstrap.min.js"
 ];
 
-task("sass", () => {
-  src(sassFiles)
+gulp.task("sass", done => {
+  gulp
+    .src(sassFiles)
     .pipe(gulpSASS())
-    .pipe(concatenate("styles.css"))
-    .pipe(dest("./public/css/"))
+    .pipe(concatenate("main.css"))
+    .pipe(gulp.dest("./public/css/"))
     .pipe(
       autoPrefix({
         browsers: ["last 2 versions"],
@@ -25,20 +26,21 @@ task("sass", () => {
       })
     )
     .pipe(cleanCSS())
-    .pipe(rename("styles.min.css"))
-    .pipe(dest("./public/css/"));
+    .pipe(rename("main.min.css"))
+    .pipe(gulp.dest("./public/css/"));
+  done();
 });
 
-task("js:vendor", () => {
-  src(vendorJsFiles)
-    .pipe(concatenate("vendor.min.js"))
-    .pipe(dest("./public/js/"));
+gulp.task("js", done => {
+  gulp.src(js).pipe(gulp.dest("public/js"));
+  done();
 });
 
-task("build", ["sass", "js:vendor"]);
+gulp.task("build", ["sass", "js"]);
 
-task("watch", () => {
-  watch(sassFiles, ["sass"]);
+gulp.task("watch", done => {
+  gulp.watch(sassFiles, ["sass"]);
+  done();
 });
 
-task("default", ["watch"]);
+gulp.task("default", ["watch"]);

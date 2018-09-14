@@ -2,21 +2,50 @@
   <h1>{{title}}</h1>
 </header>
 
-<nav class="navbar">
-  {{#each items}}
-  <li><a href="#{{this.name}}">{{this.name}}</a></li>
-  {{/each}}
-  </ul>
-</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2">
+      <nav class="nav flex-column">
+        {{#each items}}
+          <li class="nav-item"><a class="nav-link" href="#{{this.id}}">{{this.name}}</a></li>
+        {{/each}}
+        </ul>
+      </nav>
+    </div>
 
-<div class="container">
-  {{#each items}}
-  <div id={{this.name}} class="card">
-    <img class="card-img-top" alt={{this.name}} src={{this.imgSrc}} />
-    <div class="card-body">
-      <h2 class="card-title">{{this.name}}</h2>
-      <p class="card-text">{{this.details}}</p>
+    <div class="col-sm-10">
+      <section class="products">
+        <div class="row">
+          {{#each items}}
+            <div id={{this.id}} class="col-sm-6 col-md-4">
+              <img class="card-img-top" alt={{this.name}} src={{this.imgSrc}} />
+              <div class="card-body">
+                <h2 class="card-title">{{this.name}}</h2>
+                <p class="card-text">{{this.details}}</p>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#modal-{{this.id}}">
+                  Details
+                </button>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </section>
     </div>
   </div>
-  {{/each}}
 </div>
+
+{{#each items}}
+  <div class="modal fade" id="modal-{{this.id}}" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">{{this.name}}</h2>
+          <button class="close" type="button" data-dismiss="modal">X</button>
+        </div>
+
+        <div class="modal-body"><img class="img-fluid" src={{this.imgSrc}}></div>
+        <p>{{this.details}}</p>
+      </div>
+    </div>
+  </div>
+{{/each}}
