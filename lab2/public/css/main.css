@@ -6354,7 +6354,7 @@ a.text-dark:hover, a.text-dark:focus {
  */
 body,
 html {
-  background: #97d0ff;
+  background: white;
   font-size: 14pt; }
 
 p {
@@ -6365,8 +6365,6 @@ section.products h2 {
 
 section.products p {
   font-size: 12pt; }
-  main section.products p {
-    color: #123f79; }
   section.products p span {
     font-style: italic; }
 

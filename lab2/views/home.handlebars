@@ -6,9 +6,10 @@
   <div class="row">
     <div class="col-sm-2">
       <nav class="nav flex-column">
-        {{#each items}}
-          <li class="nav-item"><a class="nav-link" href="#{{this.id}}">{{this.name}}</a></li>
-        {{/each}}
+        <ul>
+          {{#each items}}
+            <li class="nav-item"><a class="nav-link" href="#{{this.id}}">{{this.name}}</a></li>
+          {{/each}}
         </ul>
       </nav>
     </div>
@@ -18,7 +19,7 @@
         <div class="row">
           {{#each items}}
             <div id={{this.id}} class="col-sm-6 col-md-4">
-              <img class="card-img-top" alt={{this.name}} src={{this.imgSrc}} />
+              <img class="card-img-top" alt="{{this.name}}" src={{this.imgSrc}} />
               <div class="card-body">
                 <h2 class="card-title">{{this.name}}</h2>
                 <p class="card-text">{{this.details}}</p>
@@ -43,8 +44,10 @@
           <button class="close" type="button" data-dismiss="modal">X</button>
         </div>
 
-        <div class="modal-body"><img class="img-fluid" src={{this.imgSrc}}></div>
-        <p>{{this.details}}</p>
+        <div class="modal-body">
+          <img alt="{{this.name}}" class="img-fluid" src="{{this.imgSrc}}">
+          <p>{{this.description}}</p>
+        </div>
       </div>
     </div>
   </div>

@@ -2,61 +2,71 @@
   {
     "id": "buttercutter",
     "name": "The Butter Cutter",
-    "details": "My uncle had this idea years ago and we called him an idiot. 7 years later it shows up on Shark Tank.",
+    "details": "You still need a knife to spread it though.",
+    "description": "My uncle had this idea years ago and we called him an idiot. 7 years later it shows up on Shark Tank.",
     "imgSrc": "https://images-na.ssl-images-amazon.com/images/I/71WGlthB6wL._SL1435_.jpg"
   },
   {
     "id": "uselessmachine",
     "name": "The Useless Machine",
     "details": "As soon as I find a use for it I'll make millions.",
+    "description": "You flip the switch then a device comes out to un-flip it. Brilliant!",
     "imgSrc": "https://www.spiercetech.com/shop/98-large_default/moody-useless-machine.jpg"
   },
   {
     "id": "twirlfork",
     "name": "Twirling Spaghetti Fork",
     "details": "Only downside is lack of Lady and the Tramp moments.",
+    "description": "Spins spaghetti into more easily consumable clumps.",
     "imgSrc": "data:image/webp;base64,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"
   },
   {
     "id": "pooTrap",
     "name": "PooTrap",
     "details": "Now your dog gets to know how you feel carrying their shit around!",
+    "description": "3 simple steps!\n1. Put this strange contraption on your poor dog\n2. Your dog poops into a bag.\n3. Now the poop is in the bag.",
     "imgSrc": "https://cdn.mtlblog.com/uploads/255565_9d358eb0d948f10c6a1afdaf330ef6aa95d5138f.jpg"
   },
   {
     "id": "toiletGolf",
     "name": "Toilet Golf",
     "details": "Sink two things at once!",
+    "description": "When you're there too long and you read the whole magazine, take up golfing!",
     "imgSrc": "https://img.buzzfeed.com/buzzfeed-static/static/2014-12/14/13/enhanced/webdr09/enhanced-1316-1418582243-26.jpg?downsize=715:*&output-format=auto&output-quality=auto"
   },
   {
     "id": "remoteHeadband",
     "name": "Remote Headband",
     "details": "Universal remotes can be expensive and confusing. Instead look stylish as you binge!",
+    "description": "All the ladies will want to Netflix n' Chill with you!",
     "imgSrc": "https://img.buzzfeed.com/buzzfeed-static/static/2014-12/14/14/enhanced/webdr09/enhanced-7258-1418585729-10.jpg?downsize=715:*&output-format=auto&output-quality=auto"
   },
   {
     "id": "privacyHood",
     "name": "Screen Privacy Hood",
     "details": "Good for sensitive information, and sensitive skin!.",
+    "description": "Note: does not hide your HANDS",
     "imgSrc": "https://img.buzzfeed.com/buzzfeed-static/static/2014-12/14/14/enhanced/webdr05/original-10758-1418585981-14.jpg?downsize=715:*&output-format=auto&output-quality=auto"
   },
   {
     "id": "eyeDropFunnel",
     "name": "Eye Drop Funnel",
-    "details": ".",
+    "details": "Now you can finally see what you're doing putting in eye drops.",
+    "description": "Disclaimer: glasses are not prescription.",
     "imgSrc": "https://img.izismile.com/img/img6/20131031/640/oldie_of_the_day_japanese_inventions_that_are_beyond_dumb_640_08.jpg"
   },
   {
     "id": "spinningIceCreamCone",
     "name": "Spinning Ice Cream Cone",
     "details": "We all scream for how hard it is to eat an ice cream cone! Right?",
+    "description": "Spins the ice cream so all you have to do is hold out your tongue and enjoy.",
     "imgSrc": "https://www.wetellyouhow.com/wp-content/uploads/2013/07/utterly-stupid-inventions-1.jpg"
   },
   {
     "id": "umbrellaCupholder",
     "name": "Umbrella Cupholder",
     "details": "Okay honestly, I think this one has some potential.",
+    "description": "You're already holding an umbrella, so if you have to use your phone you just put the coffee in the holder!",
     "imgSrc": "http://dailyoftheday.com/wp-content/uploads/2014/08/Nifty-Inventions-071.jpg"
   }
 ]
