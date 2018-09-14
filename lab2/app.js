@@ -1,7 +1,14 @@
 import express from "express";
-import configRoutes from "./routes";
+import handlebars from "express-handlebars";
+import configRoutes from "./src/routes";
 
 const app = express();
+
+const _static = express.static(__dirname + "/public");
+app.use("/public", _static);
+
+app.engine("handlebars", handlebars({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 configRoutes(app);
 

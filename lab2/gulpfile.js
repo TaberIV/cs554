@@ -5,11 +5,7 @@ import autoPrefix from "gulp-autoprefixer";
 import gulpSASS from "gulp-sass";
 import rename from "gulp-rename";
 
-const sassFiles = [
-  "./node_modules/tether/dist/css/tether.css",
-  "./src/styles/variables.scss",
-  "./src/styles/custom.scss"
-];
+const sassFiles = ["./src/styles/*"];
 
 const vendorJsFiles = [
   "./node_modules/jquery/dist/jquery.min.js",

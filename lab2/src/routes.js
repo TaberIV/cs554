@@ -1,6 +1,11 @@
+import products from "./products";
+
 export default app => {
   app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/views/index.html");
+    res.render("home", {
+      title: "My Products",
+      items: products
+    });
   });
 
   app.use("*", (req, res) => {

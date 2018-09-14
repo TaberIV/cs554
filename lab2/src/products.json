@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Thing1",
+    "details": "It's the first thing.",
+    "imgSrc": ""
+  },
+  {
+    "name": "Thing2",
+    "details": "It's the next thing.",
+    "imgSrc": ""
+  },
+  {
+    "name": "Thing3",
+    "details": "It's the next thing.",
+    "imgSrc": ""
+  },
+  {
+    "name": "Thing4",
+    "details": "It's the next thing.",
+    "imgSrc": ""
+  },
+  {
+    "name": "Thing5",
+    "details": "It's the next thing.",
+    "imgSrc": ""
+  },
+  {
+    "name": "Thing6",
+    "details": "It's the next thing.",
+    "imgSrc": ""
+  },
+  {
+    "name": "Thing7",
+    "details": "It's the next thing.",
+    "imgSrc": ""
+  },
+  {
+    "name": "Thing8",
+    "details": "It's the next thing.",
+    "imgSrc": ""
+  },
+  {
+    "name": "Thing9",
+    "details": "It's the next thing.",
+    "imgSrc": ""
+  },
+  {
+    "name": "Thing10",
+    "details": "It's the next thing.",
+    "imgSrc": ""
+  }
+]

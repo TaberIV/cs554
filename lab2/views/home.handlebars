@@ -1,0 +1,22 @@
+<header>
+  <h1>{{title}}</h1>
+</header>
+
+<nav class="navbar">
+  {{#each items}}
+  <li><a href="#{{this.name}}">{{this.name}}</a></li>
+  {{/each}}
+  </ul>
+</nav>
+
+<div class="container">
+  {{#each items}}
+  <div id={{this.name}} class="card">
+    <h2>{{this.name}}</h2>
+
+    <img alt={{this.name}} src={{this.imgSrc}} />
+
+    <p>{{this.details}}</p>
+  </div>
+  {{/each}}
+</div>
