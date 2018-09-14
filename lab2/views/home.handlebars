@@ -12,11 +12,11 @@
 <div class="container">
   {{#each items}}
   <div id={{this.name}} class="card">
-    <h2>{{this.name}}</h2>
-
-    <img alt={{this.name}} src={{this.imgSrc}} />
-
-    <p>{{this.details}}</p>
+    <img class="card-img-top" alt={{this.name}} src={{this.imgSrc}} />
+    <div class="card-body">
+      <h2 class="card-title">{{this.name}}</h2>
+      <p class="card-text">{{this.details}}</p>
+    </div>
   </div>
   {{/each}}
 </div>
