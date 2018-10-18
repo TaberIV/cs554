@@ -1,0 +1,11 @@
+{
+  "name": "lab3",
+  "version": "0.1.0",
+  "description": "For this assignment, you will practice your usage of redis and async / await together. You will promisify the redis-client for use, and you will use all of its methods with the use of the await keyword.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "E. Taber McFarlin",
+  "license": "ISC"
+}
