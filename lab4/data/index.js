@@ -1,5 +1,6 @@
 function getById(id) {
   id = Number(id);
+
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const [project] = users.filter(user => user.id === id);
