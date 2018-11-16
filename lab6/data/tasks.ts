@@ -12,7 +12,7 @@ export default {
         .find()
         .limit(skip + take)
         .toArray()
-        .then((taskArr) => taskArr.slice(skip));
+        .then((taskArr: ITask[]) => taskArr.slice(skip));
     } catch (e) {
       throw e;
     }
@@ -104,11 +104,17 @@ export default {
   async deleteComment(taskId: string, commentId: string) {
     try {
       const taskCollection = await tasks();
+      const task = await taskCollection.findOne({ _id: taskId });
 
-      return taskCollection.updateOne(
-        { _id: taskId },
-        { $pull: { comments: { _id: commentId } } }
+      if (!task) {
+        throw noSuchMember;
+      }
+
+      const comments = task.comments.filter(
+        (comment: IComment) => comment._id !== commentId
       );
+
+      return taskCollection.updateOne({ _id: taskId }, { $set: { comments } });
     } catch (e) {
       throw e;
     }
