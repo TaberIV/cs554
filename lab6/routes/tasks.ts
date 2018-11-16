@@ -1,4 +1,5 @@
 import express, { Request, Response } from "express";
+import { ITask } from "../config/mongoCollections";
 import { tasks } from "../data";
 
 const router = express.Router();
@@ -31,8 +32,8 @@ router.get(
   "/",
   async (req: Request, res: Response): Promise<void> => {
     try {
-      let skip = Number(req.query.skip);
-      let take = Number(req.query.take);
+      let skip: number = Number(req.query.skip);
+      let take: number = Number(req.query.take);
 
       if ((req.query.skip && isNaN(skip)) || (req.query.take && isNaN(take))) {
         throw missingDetails;
@@ -52,7 +53,7 @@ router.get(
 router.get(
   "/:_id",
   async (req: Request, res: Response): Promise<void> => {
-    const { _id } = req.params;
+    const _id: string = req.params._id;
 
     try {
       const task = await tasks.getTaskById(_id);
@@ -73,7 +74,7 @@ router.post(
     }
 
     try {
-      const task = await tasks.createTask({
+      const task: ITask = await tasks.createTask({
         title,
         description,
         hoursEstimated,
@@ -90,15 +91,20 @@ router.post(
 router.put(
   "/:_id",
   async (req: Request, res: Response): Promise<void> => {
-    const { _id } = req.params;
-    const { title, description, hoursEstimated, completed } = req.body;
+    const _id: string = req.params._id;
+    const {
+      title,
+      description,
+      hoursEstimated,
+      completed
+    }: IRequestBody = req.body;
 
     try {
       if (!checkDetails({ title, description, hoursEstimated, completed })) {
         throw missingDetails;
       }
 
-      const task = await tasks.updateTask(_id, {
+      const task: ITask | null = await tasks.updateTask(_id, {
         title,
         description,
         hoursEstimated,
@@ -132,7 +138,7 @@ router.patch(
         throw missingDetails;
       }
 
-      interface Details {
+      interface IDetails {
         title?: string;
         description?: string;
         hoursEstimated?: number;
@@ -140,15 +146,15 @@ router.patch(
         [key: string]: any;
       }
 
-      const details: Details = {
+      const details: IDetails = {
         title,
         description,
         hoursEstimated,
         completed
       };
-      const update: Details = {};
+      const update: IDetails = {};
 
-      Object.keys(details).forEach(async (key) => {
+      Object.keys(details).forEach(async (key: string) => {
         if (details[key]) {
           update[key] = details[key];
         }
